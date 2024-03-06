@@ -1,0 +1,6 @@
+<%= form_with(model: email) do |form| %>
+    <%= form.hidden_field :object %>
+    <%= form.hidden_field :body %>
+    <%= form.hidden_field :read, value: !email.read %>
+    <%= form.submit email.read_btn_label, class:"btn btn-secondary"%>
+<% end %>

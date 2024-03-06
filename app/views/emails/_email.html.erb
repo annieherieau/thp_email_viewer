@@ -6,5 +6,7 @@
 </div>
 <div class="d-flex justify-content-end my-3">
   <div><%= button_to "Supprimer", email, method: :delete, class: "btn btn-danger bi bi-trash-fill mx-2"%></div>
-  <div><%= button_to email.read_btn_label, email, method: :update, class: "btn btn-secondary"%></div>
+  <div>
+  <%= render "form_toggle_read", email: email %>
+  </div>
 </div>

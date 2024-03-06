@@ -38,9 +38,9 @@ class EmailsController < ApplicationController
 
   def update
     if @email.update(email_params)
-      redirect_to email_url(@email), notice: "Email was successfully updated." 
+      redirect_to emails_url
     else
-      #  ??
+      redirect_to emails_url, alert: "Une erreur est survenue..." 
     end
   end
 
@@ -48,8 +48,6 @@ class EmailsController < ApplicationController
     @email.destroy!
     redirect_to emails_url, notice: "Email was successfully destroyed." 
   end
-
-
 
   private
    # Use callbacks to share common setup or constraints between actions.

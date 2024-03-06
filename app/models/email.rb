@@ -7,4 +7,5 @@ class Email < ApplicationRecord
       "Marqué comme lu"
     end
   end
+
 end
