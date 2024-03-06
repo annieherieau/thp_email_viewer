@@ -1,4 +1,10 @@
 <h1>Users#index</h1>
-<%= render 'users/users_all' %>
 
-<%= link_to "Voir les informations", users_path, data:{turbo_frame: "user-details"} %>
+<h2>turbo Show User</h2>
+<% @user = User.first if !@user%>
+  <%= turbo_frame_tag @user do %>
+    <p><%= render "users/user", user: @user %></p>
+  <% end %>
+  
+<h2>All users</h2>
+<%= render 'users/users_all' %>
