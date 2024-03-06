@@ -10,20 +10,22 @@
   </div>
   
   <div
-    class="row justify-content-center align-items-start g-2"
+    class="row justify-content-start align-items-start g-2"
   >
-    <div class="col-6">
+  <% @email.nil? ? col = "col-12" : col = "col-6" %>
+    <div class="<%= col %>">
       <h2>Liste des emails</h2>
       <%= render 'emails/emails_all' %>
     </div>
-    <div class="col-6">
-      <h2>Email</h2>
-      
-      <%# TURBO %>
-        <%= turbo_frame_tag @email do %>
-          <p><%= render "emails/email", email: @email, read: true %></p>
-        <% end %>
-    </div>
+    <% @email.nil? ? collpase = "collapse" : collapse = "" %>
+      <div class="col-6 <%= collpase %>">
+        <h2>Email</h2>
+        
+        <%# TURBO %>
+          <%= turbo_frame_tag @email do %>
+            <p><%= render "emails/email", email: @email, read: true %></p>
+          <% end %>
+      </div>
   </div>
   
 </div>
