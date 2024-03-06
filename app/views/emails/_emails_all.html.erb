@@ -1,11 +1,15 @@
-<p style="color: green"><%= notice %></p>
 
-<div id="emails">
+<div id="emails" class="list-group">
   <% @emails.each do |email| %>
-    <%= render email %>
-    <p>
-      <%= link_to 'Show Email (turbo)', emails_path(id: email), data:{turbo_frame: @email}%>
-    </p>
+  
+  <div class="list-group-item d-flex w-100 justify-content-between bg-white pb-0">
+      <p class="w-100"><strong><%= email.object %></strong>
+    <br>
+    <%= email.body[0..40] + "..." %></p>
+      
+      <div> <%= link_to 'Lire', emails_path(id: email), data:{turbo_frame: @email}, class:'btn btn-primary btn-sm mx-2' %></div> 
+      <div><%= button_to "", email, method: :delete, class: "btn btn-danger btn-sm bi bi-trash-fill"%></div>
+  </div>
   <% end %>
 </div>
 

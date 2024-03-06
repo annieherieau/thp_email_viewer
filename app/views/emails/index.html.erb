@@ -3,7 +3,7 @@
 >
   <h1>Mes emails </h1>
   <%= link_to "Ecrire un email", new_email_path(mode: 0), class: "btn btn-primary mb-4" %>
-  <%= button_to "recevoir un email", emails_path(mode: 1), class: "btn btn-primary mb-4" %>
+  <%= button_to "Recevoir un email", emails_path, class: "btn btn-primary mb-4" %>
   <div
     class="row justify-content-center align-items-start g-2"
   >
@@ -18,7 +18,6 @@
         <%= turbo_frame_tag @email do %>
           <p><%= render "emails/email", email: @email %></p>
         <% end %>
-        "Supprimer" et "Marquer comme non-lu"
     </div>
   </div>
   

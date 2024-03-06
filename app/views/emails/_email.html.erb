@@ -1,12 +1,11 @@
-<div id="<%= dom_id email %>">
-  <p>
-    <strong>Object:</strong>
-    <%= email.object %>
-  </p>
+<div id="<%= dom_id email %>" class='bg-white p-3 border'>
+  <small>Objet:</small>
+  <h4><%= email.object %></h4>
+  <hr>
+  <p><%= email.body %></p>
+</div>
 
-  <p>
-    <strong>Body:</strong>
-    <%= email.body %>
-  </p>
-
+<div class="d-flex justify-content-end my-3">
+  <div><%= button_to "Supprimer", email, method: :delete, class: "btn btn-danger bi bi-trash-fill mx-2"%></div>
+  <div><%= button_to "Marqué comme non lu", email, method: :delete, class: "btn btn-secondary"%></div>
 </div>

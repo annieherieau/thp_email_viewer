@@ -22,7 +22,8 @@ end
 10.times do |i|
   Email.create!(
     object: Faker::Lorem.sentence,
-    body: Faker::Lorem.paragraph(sentence_count: rand(3..10))
+    body: Faker::Lorem.paragraph(sentence_count: rand(3..10)),
+    read: [false, true].sample
   )
 end
 

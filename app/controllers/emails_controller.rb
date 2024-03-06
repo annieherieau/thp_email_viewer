@@ -27,7 +27,6 @@ class EmailsController < ApplicationController
     else
       # TODO render + flash
     end
-
   end
 
   def update
