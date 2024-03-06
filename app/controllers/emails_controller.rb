@@ -20,9 +20,10 @@ class EmailsController < ApplicationController
 
   # GET /emails
   def create
-      @email = Email.new(email_params)
+    @email = Email.new(object: Faker::Lorem.sentence,
+    body: Faker::Lorem.paragraph(sentence_count: rand(3..10)))
     if @email.save
-      redirect_to email_url(@email), notice: "Email was successfully created."
+      redirect_to emails_url, notice: "Email was successfully created."
     else
       # TODO render + flash
     end
