@@ -2,13 +2,20 @@
 <div id="emails" class="list-group">
   <% @emails.sort_by{|e| -e.id}.each do |email| %>
   <% email.read ? div_class = '' : div_class = 'bg-light' %>
-  <div class="list-group-item d-flex w-100 justify-content-between pb-0 <%= div_class %>">
-      <div><%= check_box_tag :read, true, email.read, data: { turbo_action: "update-email-read-status", turbo_email_id: email.id } %></div>
-      <p class="w-100 mx-2"><strong><%= email.object %></strong>
-    <br>
-    <%= email.body[0..35] + "..." %></p>
-      <div> <%= link_to 'Lire', emails_path(id: email), data:{turbo_frame: @email}, class: 'btn btn-primary btn-sm mx-2' %></div> 
-      <div><%= button_to "", email, method: :delete, class: "btn btn-danger btn-sm bi bi-trash-fill"%></div>
+  <div class="list-group-item w-100 pb-0 <%= div_class %>">
+    <div class="d-flex justify-content-between ">
+      <!-- <div><%= check_box_tag :read, true, email.read, data: { turbo_action: "update-email-read-status", turbo_email_id: email.id } %></div> -->
+      <p class="w-100 mb-0"><strong><%= email.object %></strong>
+      <br>
+      <%= email.body[0..20] + "..." %></p>
+      <div> <%= render "form_toggle_read", email: email, submit_text: email.read_btn_text, btn_class: "btn btn-outline-secondary btn-sm mt-2 " %></div>
+    </div>
+
+    <div class="d-flex justify-content-end mb-2 ">
+        <div> <%= link_to 'Lire', emails_path(id: email), data:{turbo_frame: @email}, class: "btn btn-primary btn-sm mx-2" %></div> 
+        <div><%= button_to "", email, method: :delete, class: "btn btn-danger btn-sm bi bi-trash-fill"%></div>
+      </div>
+    
   </div>
   <% end %>
 </div>

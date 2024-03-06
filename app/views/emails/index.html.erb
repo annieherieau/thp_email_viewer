@@ -21,7 +21,7 @@
       
       <%# TURBO %>
         <%= turbo_frame_tag @email do %>
-          <p><%= render "emails/email", email: @email %></p>
+          <p><%= render "emails/email", email: @email, read: true %></p>
         <% end %>
     </div>
   </div>
