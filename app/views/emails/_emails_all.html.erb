@@ -4,7 +4,7 @@
   <% @emails.each do |email| %>
     <%= render email %>
     <p>
-      <%= link_to "Show this email", email %>
+      <%= link_to 'Show Email (turbo)', emails_path(id: email), data:{turbo_frame: @email}%>
     </p>
   <% end %>
 </div>

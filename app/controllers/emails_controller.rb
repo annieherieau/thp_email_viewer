@@ -1,5 +1,5 @@
 class EmailsController < ApplicationController
-  before_action :set_email, only: %i[ show edit update destroy ]
+  before_action :set_email, only: %i[ index show edit update destroy ]
   # GET /emails
   def index
     @emails = Email.all
@@ -44,8 +44,8 @@ class EmailsController < ApplicationController
 
   private
    # Use callbacks to share common setup or constraints between actions.
-   def set_email
-    @email = Email.find(params[:id])
+  def set_email
+    params[:id] ? @email = Email.find(params[:id]) : @email = Email.last
   end
 
   # Only allow a list of trusted parameters through.

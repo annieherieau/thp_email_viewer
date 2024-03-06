@@ -1,7 +1,6 @@
 <h1>Users#index</h1>
 
 <h2>turbo Show User</h2>
-<% @user = User.first if !@user%>
   <%= turbo_frame_tag @user do %>
     <p><%= render "users/user", user: @user %></p>
   <% end %>

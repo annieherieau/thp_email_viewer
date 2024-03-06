@@ -3,7 +3,7 @@
 >
   <h1>Mes emails </h1>
   <%= link_to "Ecrire un email", new_email_path(mode: 1), class: "btn btn-primary mb-4" %>
-
+  <%= link_to "Ecrire un email", new_email_path(mode: 1), class: "btn btn-primary mb-4" %>
   <div
     class="row justify-content-center align-items-start g-2"
   >
@@ -14,6 +14,11 @@
     <div class="col-6">
       <h2>Email sélectionné</h2>
       
+      <%# TURBO %>
+        <%= turbo_frame_tag @email do %>
+          <p><%= render "emails/email", email: @email %></p>
+        <% end %>
+
     </div>
   </div>
   
