@@ -5,6 +5,7 @@
     <%= render email %>
     <p>
       <%= link_to "Show this email", email %>
+      <%= link_to "Voir les informations", emails_path, data:{turbo_frame: "emails/email"} %>
     </p>
   <% end %>
 </div>
