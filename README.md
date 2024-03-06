@@ -1,24 +1,6 @@
-# README
+# Email Viewer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Email Viewer est un gmail-like sur seule et unique page avec 2 colonnes :
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Une colonne contenant la liste des emails en base ;
+- Une colonne affichant le contenu de l'email sur lequel l'utilisateur vient de cliquer.
