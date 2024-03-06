@@ -3,12 +3,13 @@
 >
   <h1 class="my-5">Mes emails </h1>
   <%= link_to "Ecrire un email", new_email_path(mode: 1), class: "btn btn-primary mb-4" %>
+
   <div
     class="row justify-content-center align-items-start g-2"
   >
     <div class="col-6">
       <h2>Liste des emails</h2>
-      <%= render 'emails/email_all' %>
+      <%= render 'emails/emails_all' %>
     </div>
     <div class="col-6">
       <h2>Email sélectionné</h2>

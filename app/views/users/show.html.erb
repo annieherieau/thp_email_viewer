@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+
+
+
+
+
+<%= turbo_frame_tag @user do %>
+  <%= render @user %>
+
+  <%= link_to 'Edit this user', edit_user_path(@user) %>
+<% end %>
+
+<div>
+  <%= link_to "Back to users", users_path %>
+
+  <%= button_to "Destroy this user", @user, method: :delete %>
+</div>
