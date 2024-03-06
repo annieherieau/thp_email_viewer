@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<div id="emails">
+  <% @emails.each do |email| %>
+    <%= render email %>
+    <p>
+      <%= link_to "Show this email", email %>
+    </p>
+  <% end %>
+</div>
+
+
