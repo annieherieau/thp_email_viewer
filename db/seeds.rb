@@ -13,7 +13,6 @@ Faker::Config.locale='fr'
 Faker::UniqueGenerator.clear
 
 Email.destroy_all
-User.destroy_all
 ActiveRecord::Base.connection.tables.each do |t|
 	ActiveRecord::Base.connection.reset_pk_sequence!(t)
 end
@@ -26,12 +25,5 @@ end
     read: [false, true].sample
   )
 end
-
-3.times do |i|
-  User.create!(
-    name: Faker::Name.first_name,
-  )
-end
-
 
 

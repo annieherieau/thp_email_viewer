@@ -20,12 +20,19 @@ class EmailsController < ApplicationController
 
   # GET /emails
   def create
-    @email = Email.new(object: Faker::Lorem.sentence,
-    body: Faker::Lorem.paragraph(sentence_count: rand(3..10)))
-    if @email.save
-      redirect_to emails_url, notice: "Email was successfully created."
-    else
-      # TODO render + flash
+    check_save = true
+    nb= 0
+    rand(1..4).times do |i|
+      @email = Email.new(object: Faker::Lorem.sentence,
+      body: Faker::Lorem.paragraph(sentence_count: rand(3..10)),
+      read: false)
+      check_save = false if !@email.save
+      nb += 1
+    end
+      if check_save
+        redirect_to emails_url, notice: "Vous avez reçu #{nb} nouveau(x) email(s)"
+      else
+        redirect_to emails_url, alert: "Une erreur s'est produite"
     end
   end
 
@@ -42,6 +49,8 @@ class EmailsController < ApplicationController
     redirect_to emails_url, notice: "Email was successfully destroyed." 
   end
 
+
+
   private
    # Use callbacks to share common setup or constraints between actions.
   def set_email
@@ -50,6 +59,6 @@ class EmailsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def email_params
-    params.require(:email).permit(:object, :body)
+    params.require(:email).permit(:object, :body, :read)
   end
 end

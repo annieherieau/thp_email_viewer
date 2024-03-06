@@ -1,13 +1,13 @@
 
 <div id="emails" class="list-group">
-  <% @emails.each do |email| %>
-  
-  <div class="list-group-item d-flex w-100 justify-content-between bg-white pb-0">
-      <p class="w-100"><strong><%= email.object %></strong>
+  <% @emails.sort_by{|e| -e.id}.each do |email| %>
+  <% email.read ? div_class = '' : div_class = 'bg-light' %>
+  <div class="list-group-item d-flex w-100 justify-content-between pb-0 <%= div_class %>">
+      <div><%= check_box_tag :read, true, email.read, data: { turbo_action: "update-email-read-status", turbo_email_id: email.id } %></div>
+      <p class="w-100 mx-2"><strong><%= email.object %></strong>
     <br>
-    <%= email.body[0..40] + "..." %></p>
-      
-      <div> <%= link_to 'Lire', emails_path(id: email), data:{turbo_frame: @email}, class:'btn btn-primary btn-sm mx-2' %></div> 
+    <%= email.body[0..35] + "..." %></p>
+      <div> <%= link_to 'Lire', emails_path(id: email), data:{turbo_frame: @email}, class: 'btn btn-primary btn-sm mx-2' %></div> 
       <div><%= button_to "", email, method: :delete, class: "btn btn-danger btn-sm bi bi-trash-fill"%></div>
   </div>
   <% end %>
