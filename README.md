@@ -1,10 +1,11 @@
 # Email Viewer
 
-Email Viewer est un gmail-like sur seule et unique page avec 2 colonnes :
+Email Viewer is single page app with 2 columns:
 
-- Une colonne contenant la liste des emails en base
-- Une colonne affichant le contenu de l'email sur lequel l'utilisateur vient de cliquer
-- synchroniser: nouveaux messages entrants
+- A column showing the list of fake emails in mailbox
+- A column displaying the content of the email currently being read
+  
+and a “synchronize” button for fake incoming messages
 
 ## 2. Démo 
 - [ https://raymote-it-mvp.fly.dev/](https://thp-email-viewer.fly.dev/)
