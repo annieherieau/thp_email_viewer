@@ -8,7 +8,7 @@ Email Viewer is single page app with 2 columns:
 and a “synchronize” button for fake incoming messages
 
 ## 2. Démo 
-- [ https://raymote-it-mvp.fly.dev/](https://thp-email-viewer.fly.dev/)
+- [[ https://raymote-it-mvp.fly.dev/](https://thp-email-viewer.fly.dev/)]
 
 ## Stack et Installation
 ### Stack
